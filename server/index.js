@@ -15,6 +15,14 @@ app.use((req, res, next) => {
     next();
   });
 
+  const corsOptions = {
+    origin: '*',
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+  };
+  
+  app.use(cors(corsOptions));
+
   app.get('/', (req, res) => {
     res.send('server')
 })
