@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Logo from '../../assets/BoloForms.png';
 
-axios.defaults.baseURL = 'http://localhost:9000';
+axios.defaults.baseURL = 'https://mern-stack-1aj6eikec-fahyvor.vercel.app/';
 
 const FormPage = () => {
   const [registerFormData, setRegisterFormData] = useState({
