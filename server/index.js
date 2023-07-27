@@ -4,14 +4,8 @@ const cors = require('cors')
 app.use(express.json())
 const connectDB = require('./db/connect')
 require('dotenv').config()
+
 app.use(cors())
-
-app.get('/', (req, res) => {
-    res.send('server')
-})
-
-const register = require('./routes/auth')
-app.use('/api/v1/auth', register)
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://mern-stack-app-g1gi.vercel.app');
@@ -19,6 +13,13 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });
+
+  app.get('/', (req, res) => {
+    res.send('server')
+})
+
+const register = require('./routes/auth')
+app.use('/api/v1/auth', register)
 
 
 const port = 9000;
