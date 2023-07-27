@@ -1,5 +1,4 @@
 import React from 'react'
-import './form.css'
 
 const handleLogin = () => {
 
@@ -7,14 +6,14 @@ const handleLogin = () => {
 
 const FormPage = () => {
   return (
-    <div className='container-fluid pt-3 justify-between flex px-8 h-max'>
-      <div className='left-part bg-red-500 p-4 w-1/2 my-auto
-      text-center'>
+    <div className='container-fluid pt-3 justify-between flex h-screen'>
+      <div className='left-part bg-slate-300 p-4 w-1/2 my-auto
+      text-center h-screen flex flex-col justify-center align-center text-slate-950'>
         <h3>Welcome to our Home!</h3>
         <p>Please register to be part of the family</p>
       </div>
  
-      <div className='right-part w-1/2 flex p-3 justify-center bg-white-500'>
+      <div className='right-part w-1/2 flex p-3 justify-center bg-slate-950'>
         <form onSubmit={handleLogin} className='flex flex-col gap-5 justify-center
         my-auto
         items-center'>
@@ -30,14 +29,22 @@ const FormPage = () => {
           className='p-4'
           />
 
-          <div className='sex'>
-          <h6>Sex</h6>
-          <label id='Male'>M</label>
-          <label id='Female'>F</label>
+          <div className='sex flex gap-3 items-center'>
+          <h6 className='text-2xl'>Sex</h6>
+          <input type='radio' id='Male' name="M" value="M" />
+          <label for='Male'>M</label>
+          <input type='radio' id='Female' name="F" value="F" />
+          <label for='Female'>F</label>
           </div>
 
           <input type='email'
           placeholder='Email'
+          required
+          className='p-4'
+          />
+
+          <input type='password'
+          placeholder='Password'
           required
           className='p-4'
           />
