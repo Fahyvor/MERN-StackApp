@@ -5,23 +5,26 @@ app.use(express.json())
 const connectDB = require('./db/connect')
 require('dotenv').config()
 
-const corsOptions = {
-  origin: '*',
-  methods: 'GET, POST, PUT, DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
-};
+const allowedOrigins = ['https://mern-stack-app-g1gi-qehof4t60-fahyvor.vercel.app'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
-app.use(cors(corsOptions));
+// app.use(cors())
 
-app.use(cors())
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mern-stack-app-g1gi.vercel.app');
-    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'https://mern-stack-app-g1gi.vercel.app');
+//     // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173/');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     next();
+//   });
 
 
 
