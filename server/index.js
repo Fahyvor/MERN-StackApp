@@ -1,10 +1,6 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-app.use(express.json())
-const connectDB = require('./db/connect')
-require('dotenv').config()
-
 app.use(cors())
 
 app.use((_req, res, next) => {
@@ -13,6 +9,12 @@ app.use((_req, res, next) => {
 
   next();
 });
+
+app.use(express.json())
+const connectDB = require('./db/connect')
+require('dotenv').config()
+
+
 
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', 'https://mern-stack-app-g1gi.vercel.app');
