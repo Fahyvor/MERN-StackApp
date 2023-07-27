@@ -5,6 +5,14 @@ app.use(express.json())
 const connectDB = require('./db/connect')
 require('dotenv').config()
 
+const corsOptions = {
+  origin: '*',
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+};
+
+app.use(cors(corsOptions));
+
 app.use(cors())
 
 app.use((req, res, next) => {
@@ -15,13 +23,7 @@ app.use((req, res, next) => {
     next();
   });
 
-  const corsOptions = {
-    origin: '*',
-    methods: 'GET, POST, PUT, DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-  };
-  
-  app.use(cors(corsOptions));
+
 
   app.get('/', (req, res) => {
     res.send('server')
