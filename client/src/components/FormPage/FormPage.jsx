@@ -3,6 +3,7 @@ import axios from 'axios';
 import Logo from '../../assets/BoloForms.png';
 
 axios.defaults.baseURL = 'https://mern-stack-1aj6eikec-fahyvor.vercel.app/';
+// axios.defaults.baseURL = 'http://localhost:9000';
 
 const FormPage = () => {
   const [registerFormData, setRegisterFormData] = useState({
@@ -23,13 +24,14 @@ const FormPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    console.log(registerFormData)
 
     try {
       const response = await axios.post('/api/v1/auth/register', registerFormData);
-      console.log(response.data);
+      console.log(response);
       console.log('Registration Successful');
     } catch (error) {
-      console.error('Error Registering:', error.response.data);
+      console.error('Error Registering:', error);
     }
   };
 
@@ -44,7 +46,6 @@ const FormPage = () => {
       <div className='right-part w-1/2 flex p-3 justify-center bg-slate-950'>
         <form
           onSubmit={handleRegister}
-          method='post'
           className='flex flex-col gap-5 justify-center my-auto items-center'
         >
           <input
