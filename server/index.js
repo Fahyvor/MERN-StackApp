@@ -13,6 +13,13 @@ app.get('/', (req, res) => {
 const register = require('./routes/auth')
 app.use('/api/v1/auth', register)
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://mern-stack-app-g1gi.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+
 
 const port = 9000;
 
