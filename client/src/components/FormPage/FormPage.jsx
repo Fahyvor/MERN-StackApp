@@ -12,6 +12,7 @@ const FormPage = () => {
     sex: '',
     email: '',
     password: '',
+    position: '',
   });
 
   const handleRegisterInputChange = (e) => {
@@ -43,7 +44,7 @@ const FormPage = () => {
         <p>Please register to be part of the family</p>
       </div>
 
-      <div className='right-part w-1/2 flex p-3 justify-center bg-slate-950'>
+      <div className='right-part w-1/2 flex p-3 h-screen justify-center bg-slate-950'>
         <form
           onSubmit={handleRegister}
           className='flex flex-col gap-5 justify-center my-auto items-center'
@@ -78,6 +79,7 @@ const FormPage = () => {
               checked={registerFormData.sex === 'M'}
               onChange={handleRegisterInputChange}
             />
+
             <label htmlFor='Male'>M</label>
             <input
               type='radio'
@@ -109,6 +111,22 @@ const FormPage = () => {
             className='p-4 max-sm:w-3/4'
             onChange={handleRegisterInputChange}
           />
+
+          <div className='family-position w-3/4 flex flex-col
+          items-center py-2'>
+            <small>Position in the Family</small>
+            <select name="Position" required 
+              className='w-3/4 mt-3 p-2 rounded-lg'
+              >
+
+                <option value='child'>Child</option>
+                <option value='parent'>Parent</option>
+                <option value='cousin'>Cousin</option>
+                <option value='aunt'>Aunt</option>
+                <option value='uncle'>Uncle</option>
+
+            </select>
+          </div>
 
           <input
             type='submit'

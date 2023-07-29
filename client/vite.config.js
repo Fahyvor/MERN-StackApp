@@ -7,6 +7,6 @@ export default defineConfig({
     proxy: {
       '/api': 'https://mern-stack-app-delta.vercel.app/'
     }
-  }
+  },
   plugins: [react()],
 })

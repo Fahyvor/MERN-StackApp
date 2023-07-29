@@ -9,10 +9,11 @@ const register = async (req, res) => {
             phone,
             sex,
             email,
-            password
+            password,
+            position
         } = req.body
         
-        if (!fullname || !phone ||!sex ||!email ||!password) {
+        if (!fullname || !phone ||!sex ||!email ||!password ||!position) {
             return res.status(400).json({ error: 'Please provide all fields.'})
         }
 
