@@ -112,11 +112,11 @@ const FormPage = () => {
             onChange={handleRegisterInputChange}
           />
 
-          <div className='family-position w-3/4 flex flex-col
+          <div className='family-position w-full flex flex-col
           items-center py-2'>
             <small>Position in the Family</small>
             <select name="Position" required 
-              className='w-3/4 mt-3 p-2 rounded-lg'
+              className='w-full mt-3 p-3 rounded-lg'
               >
 
                 <option value='child'>Child</option>
